@@ -45,6 +45,12 @@ export default function PrimarySearchAppBar() {
               >
                 Basic
               </Link>
+              <Link
+                href="/account"
+                className="text-[#000000] dark:text-white text-[18px] font-bold navLink"
+              >
+                Account
+              </Link>
             </div>
           </Box>
           <Box

@@ -13,6 +13,9 @@ import ListItemText from "@mui/material/ListItemText";
 import { IconButton, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Link from "next/link";
+import InfoIcon from "@mui/icons-material/Info";
 
 type Anchor = "top" | "left" | "bottom" | "right";
 
@@ -61,11 +64,13 @@ export default function SwipeableTemporaryDrawer() {
       </div>
       <Divider />
       <List>
-        {["Home"].map((text, index) => (
+        {["Home", "Basic", "Account"].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton href="/">
+            <ListItemButton component={Link} href={text === "Home" ? "/" : `/${text.toLowerCase()}`}>
               <ListItemIcon>
-                {index % 2 === 0 ? <HomeIcon /> : <HomeIcon />}
+                {text === "Home" ? <HomeIcon /> : 
+                 text === "Basic" ? <InfoIcon /> : 
+                 <AccountCircleIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
